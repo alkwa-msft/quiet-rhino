@@ -1,0 +1,25 @@
+{
+  "name": "asw-nodejs-react-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "swa start http://localhost:3000 --run \"cd app && yarn start\" --api ./api",
+    "build": "cd app && yarn build && cd .. && cd api && yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@azure/static-web-apps-cli": "^0.6.1",
+    "azure-functions-core-tools": "^3.0.3568"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkwa-msft/asw-nodejs-react-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alkwa-msft/asw-nodejs-react-typescript/issues"
+  },
+  "homepage": "https://github.com/alkwa-msft/asw-nodejs-react-typescript#readme"
+}
