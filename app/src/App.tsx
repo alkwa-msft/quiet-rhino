@@ -55,11 +55,18 @@ const HomeScreen = (props: { threadId: string, userId: string, setThreadId: (val
         <DefaultButton onClick={(evt) => {
           (async() => {
             const tokenResponse = await(await fetch('/api/token')).json();
-            props.setToken((tokenResponse as any).token);
-            props.setUserId((tokenResponse as any).user.communicationUserId);
-            const threadResponse = await(await fetch(`/api/createThreadAndModerator?threadId=${props.threadId}&userId=${props.userId}`)).json();
-            props.setThreadId((threadResponse as any).threadId);
-            history.push("/chat");
+            const token = (tokenResponse as any).token
+            props.setToken(token);
+            const userId = (tokenResponse as any).user.communicationUserId;
+            props.setUserId(userId);
+            const threadResponse = await(await fetch(`/api/createThreadAndModerator`)).json();
+            const threadId = (threadResponse as any).threadId
+            props.setThreadId(threadId);
+            const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${threadId}&userId=${userId}`)).json();
+            if (addToThreadResponse.participantAdded) {
+              history.push("/chat");
+            }
+           
           })();
          
         }}>Join chat</DefaultButton>
