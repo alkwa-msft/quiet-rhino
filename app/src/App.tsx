@@ -68,6 +68,8 @@ const HomeScreen = (props: { threadId: string, userId: string, setThreadId: (val
                 return;
               }
 
+              props.setThreadId(threadId);
+
               // get my token and user id
               const tokenResponse = await(await fetch('/api/token')).json();
               const token = (tokenResponse as any).token
