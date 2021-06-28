@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory
+  useHistory,
+  useParams
 } from "react-router-dom";
 import { DefaultButton, TextField } from '@fluentui/react';
 import { createAzureCommunicationChatAdapter, ChatComposite, ChatAdapter } from '@azure/communication-react'
@@ -42,7 +43,10 @@ function App() {
   );
 }
 
+// This screen allows us to set up the user and ask for any information
+// This is also where if we wanted to have a join link we would do something here as well
 const HomeScreen = (props: { threadId: string, userId: string, setThreadId: (val: string) => void, setUserId: (val: string) => void, setName: (val: string) => void, setToken: (val: string) => void }): JSX.Element => {
+  let { threadId } = useParams<{threadId: string}>();
   const history = useHistory();
   return <div className="App">
       <header className="App-header">
@@ -54,34 +58,65 @@ const HomeScreen = (props: { threadId: string, userId: string, setThreadId: (val
         }} />
         <DefaultButton onClick={(evt) => {
           (async() => {
-            const tokenResponse = await(await fetch('/api/token')).json();
-            const token = (tokenResponse as any).token
-            props.setToken(token);
-            const userId = (tokenResponse as any).user.communicationUserId;
-            props.setUserId(userId);
-            const threadResponse = await(await fetch(`/api/createThreadAndModerator`)).json();
-            const threadId = (threadResponse as any).threadId
-            props.setThreadId(threadId);
-            const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${threadId}&userId=${userId}`)).json();
-            if (addToThreadResponse.participantAdded) {
-              history.push("/chat");
+            if (threadId) {
+              // check if the thread exists
+              const threadResponse = await(await fetch(`/api/isThreadValid?threadId=${threadId}`)).json();
+              const threadExists = (threadResponse as any).threadExists
+
+              if (!threadExists) {
+                console.warn('thread does not exist')
+                return;
+              }
+
+              // get my token and user id
+              const tokenResponse = await(await fetch('/api/token')).json();
+              const token = (tokenResponse as any).token
+              props.setToken(token);
+              const userId = (tokenResponse as any).user.communicationUserId;
+              props.setUserId(userId);
+
+              // add user to thread
+              const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${threadId}&userId=${userId}`)).json();
+              if (addToThreadResponse.participantAdded) {
+                history.push("/chat");
+              }
             }
-           
+            else {
+              // get my token and user id
+              const tokenResponse = await(await fetch('/api/token')).json();
+              const token = (tokenResponse as any).token
+              props.setToken(token);
+              const userId = (tokenResponse as any).user.communicationUserId;
+              props.setUserId(userId);
+
+              // create a new thread
+              const threadResponse = await(await fetch(`/api/createThreadAndModerator`)).json();
+              const newThreadId = (threadResponse as any).threadId
+              props.setThreadId(newThreadId);
+
+              // add myself to this thread
+              const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${newThreadId}&userId=${userId}`)).json();
+              if (addToThreadResponse.participantAdded) {
+                history.push("/chat");
+              }
+            }
           })();
-         
         }}>Join chat</DefaultButton>
       </header>
     </div>
 }
 
 const ChatScreen = (props: { adapter: ChatAdapter | undefined}): JSX.Element => {
+  // main chat screen
   const history = useHistory();
   return <div>
-    {props.adapter && <ChatComposite adapter={props.adapter}/>}
-    <DefaultButton onClick={() => { history.push("/feedback")}}>Leave chat</DefaultButton></div>
+    <DefaultButton style={{float:'right'}} onClick={() => { history.push("/feedback")}}>Leave chat</DefaultButton>
+    {props.adapter && <div style={{height:'90vh'}}><ChatComposite adapter={props.adapter}/></div>}
+  </div>
 }
 
 const FeedbackScreen = ():JSX.Element => {
+  // opportunity to put in an app insights with UI to collect data
   return <div>Did you have a good experience?</div>
 }
 
