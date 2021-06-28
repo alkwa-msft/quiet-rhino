@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
   useHistory,
-  useParams
+  useLocation
 } from "react-router-dom";
 import { DefaultButton, TextField } from '@fluentui/react';
 import { createAzureCommunicationChatAdapter, ChatComposite, ChatAdapter } from '@azure/communication-react'
@@ -32,9 +32,6 @@ function App() {
       <Route exact path="/">
           <HomeScreen setName={setName} setThreadId={setThreadId} setToken={setToken} setUserId={setUserId} userId={userId} />
         </Route>
-        <Route exact path="/:threadId">
-          <HomeScreen setName={setName} setThreadId={setThreadId} setToken={setToken} setUserId={setUserId} userId={userId} />
-        </Route>
         <Route path="/chat">
           <ChatScreen adapter={adapter}/>
         </Route>
@@ -49,7 +46,7 @@ function App() {
 // This screen allows us to set up the user and ask for any information
 // This is also where if we wanted to have a join link we would do something here as well
 const HomeScreen = (props: { userId: string, setThreadId: (val: string) => void, setUserId: (val: string) => void, setName: (val: string) => void, setToken: (val: string) => void }): JSX.Element => {
-  let { threadId } = useParams<{threadId: string}>();
+  const threadId = new URLSearchParams(useLocation().search).get('threadId');
   const history = useHistory();
   return <div className="App">
       <header className="App-header">
