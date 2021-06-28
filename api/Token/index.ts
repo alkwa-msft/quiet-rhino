@@ -7,6 +7,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     // we should validate the connection string
     if (!connectionString) {
         console.warn('no resource connection string set')
+        context.res.status = 500
         return;
     }
 

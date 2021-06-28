@@ -18,6 +18,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     if (!communicationUserId) {
         console.warn('no communicationUserId provided')
+        context.res.status = 500
+        return;
     }
 
     const userAndToken = await tokenClient.getToken({communicationUserId: communicationUserId}, ['chat']);
