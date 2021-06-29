@@ -16,7 +16,7 @@ function App() {
   const [userId, setUserId] = useState<string>('');
   const [threadId, setThreadId] = useState<string>('');
   const [adapter, setAdapter] = useState<ChatAdapter | undefined>(undefined);
-  
+
   useEffect(() => {
     (async() => {
       if (token && name && threadId) {
@@ -33,7 +33,7 @@ function App() {
           <HomeScreen setName={setName} setThreadId={setThreadId} setToken={setToken} setUserId={setUserId} userId={userId} />
         </Route>
         <Route path="/chat">
-          <ChatScreen adapter={adapter}/>
+          <ChatScreen adapter={adapter} threadId={threadId}/>
         </Route>
         <Route path="/feedback">
           <FeedbackScreen />
@@ -46,6 +46,7 @@ function App() {
 // This screen allows us to set up the user and ask for any information
 // This is also where if we wanted to have a join link we would do something here as well
 const HomeScreen = (props: { userId: string, setThreadId: (val: string) => void, setUserId: (val: string) => void, setName: (val: string) => void, setToken: (val: string) => void }): JSX.Element => {
+  const [joinLock, setJoinLock] = useState<boolean>(false);
   const threadId = new URLSearchParams(useLocation().search).get('threadId');
   const history = useHistory();
   return <div className="App">
@@ -57,62 +58,69 @@ const HomeScreen = (props: { userId: string, setThreadId: (val: string) => void,
           }
         }} />
         <DefaultButton onClick={(evt) => {
-          (async() => {
-            if (threadId) {
-              // check if the thread exists
-              const threadResponse = await(await fetch(`/api/isThreadValid?threadId=${threadId}`)).json();
-              const threadExists = (threadResponse as any).threadExists
+          if (!joinLock) {
+            setJoinLock(true);
+            (async() => {
+              if (threadId) {
+                // check if the thread exists
+                const threadResponse = await(await fetch(`/api/isThreadValid?threadId=${threadId}`)).json();
+                const threadExists = (threadResponse as any).threadExists
 
-              if (!threadExists) {
-                console.warn('thread does not exist')
-                return;
+                if (!threadExists) {
+                  console.warn('thread does not exist')
+                  return;
+                }
+
+                props.setThreadId(threadId);
+
+                // get my token and user id
+                const tokenResponse = await(await fetch('/api/token')).json();
+                const token = (tokenResponse as any).token
+                props.setToken(token);
+                const userId = (tokenResponse as any).user.communicationUserId;
+                props.setUserId(userId);
+
+                // add user to thread
+                const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${threadId}&userId=${userId}`)).json();
+                if (addToThreadResponse.participantAdded) {
+                  history.push("/chat");
+                  setJoinLock(false);
+                }
               }
+              else {
+                // get my token and user id
+                const tokenResponse = await(await fetch('/api/token')).json();
+                const token = (tokenResponse as any).token
+                props.setToken(token);
+                const userId = (tokenResponse as any).user.communicationUserId;
+                props.setUserId(userId);
 
-              props.setThreadId(threadId);
+                // create a new thread
+                const threadResponse = await(await fetch(`/api/createThreadAndModerator`)).json();
+                const newThreadId = (threadResponse as any).threadId
+                props.setThreadId(newThreadId);
 
-              // get my token and user id
-              const tokenResponse = await(await fetch('/api/token')).json();
-              const token = (tokenResponse as any).token
-              props.setToken(token);
-              const userId = (tokenResponse as any).user.communicationUserId;
-              props.setUserId(userId);
-
-              // add user to thread
-              const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${threadId}&userId=${userId}`)).json();
-              if (addToThreadResponse.participantAdded) {
-                history.push("/chat");
+                // add myself to this thread
+                const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${newThreadId}&userId=${userId}`)).json();
+                if (addToThreadResponse.participantAdded) {
+                  history.push("/chat");
+                  setJoinLock(false);
+                }
               }
-            }
-            else {
-              // get my token and user id
-              const tokenResponse = await(await fetch('/api/token')).json();
-              const token = (tokenResponse as any).token
-              props.setToken(token);
-              const userId = (tokenResponse as any).user.communicationUserId;
-              props.setUserId(userId);
-
-              // create a new thread
-              const threadResponse = await(await fetch(`/api/createThreadAndModerator`)).json();
-              const newThreadId = (threadResponse as any).threadId
-              props.setThreadId(newThreadId);
-
-              // add myself to this thread
-              const addToThreadResponse = await(await fetch(`/api/AddUserToChatThread?threadId=${newThreadId}&userId=${userId}`)).json();
-              if (addToThreadResponse.participantAdded) {
-                history.push("/chat");
-              }
-            }
-          })();
+            })();
+          }
         }}>Join chat</DefaultButton>
       </header>
     </div>
 }
 
-const ChatScreen = (props: { adapter: ChatAdapter | undefined}): JSX.Element => {
+const ChatScreen = (props: { adapter: ChatAdapter | undefined, threadId: string}): JSX.Element => {
   // main chat screen
   const history = useHistory();
   return <div>
     <DefaultButton style={{float:'right'}} onClick={() => { history.push("/feedback")}}>Leave chat</DefaultButton>
+    <DefaultButton style={{float:'right'}} onClick={() => {navigator.clipboard.writeText(`${window.location.hostname}/?threadId=${props.threadId}`)}}>Copy join link to clipboard</DefaultButton>
+    
     {props.adapter && <div style={{height:'90vh'}}><ChatComposite adapter={props.adapter}/></div>}
   </div>
 }
