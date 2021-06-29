@@ -1,19 +1,13 @@
 {
     "routes": [
       {
-        "route": "/",
-        "redirect": "/index.html",
-        "statusCode": 200
+        "route": "/"
       },
       {
-        "route": "/chat",
-        "redirect": "/index.html",
-        "statusCode": 200
+        "route": "/chat"
       },
       {
-        "route": "/feedback",
-        "redirect": "/index.html",
-        "statusCode": 200
+        "route": "/feedback"
       }
     ]
   }
