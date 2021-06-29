@@ -21,6 +21,9 @@ You will need to stop the server and start the server again if you make changes 
 
 Open [http://localhost:4280](http://localhost:4280) to view it in the browser.
 
+If you have any issues starting it up. There is a chance the CRA dev server didn't start up in time. In a separate process start up the devserver (cd app && yarn start)
+and then call yarn start in the root directory to trigger the swa cli
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\

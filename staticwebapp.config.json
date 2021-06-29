@@ -1,0 +1,13 @@
+{
+    "routes": [
+      {
+        "route": "/"
+      },
+      {
+        "route": "/chat"
+      },
+      {
+        "route": "/feedback"
+      }
+    ]
+  }
