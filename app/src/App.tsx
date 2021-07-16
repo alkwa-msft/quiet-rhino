@@ -121,7 +121,7 @@ const ChatScreen = (props: { adapter: ChatAdapter | undefined, threadId: string}
     <DefaultButton style={{float:'right'}} onClick={() => { history.push("/feedback")}}>Leave chat</DefaultButton>
     <DefaultButton style={{float:'right'}} onClick={() => {navigator.clipboard.writeText(`${window.location.hostname}/?threadId=${props.threadId}`)}}>Copy join link to clipboard</DefaultButton>
     
-    {props.adapter && <div style={{height:'90vh'}}><ChatComposite adapter={props.adapter} options={{'showParticipantPane': false}}/></div>}
+    {props.adapter && <div id="chat"><ChatComposite adapter={props.adapter} options={{'showParticipantPane': false}}/></div>}
   </div>
 }
 
