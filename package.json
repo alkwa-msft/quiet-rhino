@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "swa start http://localhost:3000 --run \"cd app && yarn start\" --api ./api",
+    "start": "swa start http://localhost:3000 --api ./api",
     "build": "cd app && yarn build && cd .. && cd api && yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

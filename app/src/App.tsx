@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     (async() => {
       if (token && name && threadId) {
-      const chatAdapter = await createAzureCommunicationChatAdapter(token, 'https://acs-ui-dev.communication.azure.com', threadId, name);
+      const chatAdapter = await createAzureCommunicationChatAdapter({ communicationUserId: userId}, token, 'https://acs-ui-dev.communication.azure.com', threadId, name);
       setAdapter(chatAdapter);
     }
     })();
@@ -121,7 +121,7 @@ const ChatScreen = (props: { adapter: ChatAdapter | undefined, threadId: string}
     <DefaultButton style={{float:'right'}} onClick={() => { history.push("/feedback")}}>Leave chat</DefaultButton>
     <DefaultButton style={{float:'right'}} onClick={() => {navigator.clipboard.writeText(`${window.location.hostname}/?threadId=${props.threadId}`)}}>Copy join link to clipboard</DefaultButton>
     
-    {props.adapter && <div style={{height:'90vh'}}><ChatComposite adapter={props.adapter}/></div>}
+    {props.adapter && <div style={{height:'90vh'}}><ChatComposite adapter={props.adapter} options={{'showParticipantPane': false}}/></div>}
   </div>
 }
 

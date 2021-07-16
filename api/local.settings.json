@@ -1,10 +1,10 @@
 {
-    "IsEncrypted": false,
-    "Values": {
-      "FUNCTIONS_WORKER_RUNTIME": "node",
-      "resourceEndpoint": "", 
-      "resourceConnectionString": "",
-      "redishostname": "",
-      "rediscachekey": ""
-    }
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "resourceEndpoint": "https://acs-ui-dev.communication.azure.com", 
+    "resourceConnectionString": "endpoint=https://acs-ui-dev.communication.azure.com/;accesskey=MQ/Vbm/XR+f16crsRH8coQenIzpjhfdecGV8F5Y+WkfCsX4w9T/F/8CJICMX0MZo46/HDM+CRaw8mNBxz4sOHA==",
+    "redishostname": "common-asw-rg.redis.cache.windows.net",
+    "rediscachekey": "YN3lvTGqXiLlkK7AfFM7olsQ2ZflTR2npvHvODKCnQA="
   }
+}

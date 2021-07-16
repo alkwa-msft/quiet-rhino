@@ -9,10 +9,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@azure/communication-calling@1.0.1-beta.1":
-  version "1.0.1-beta.1"
-  resolved "https://registry.yarnpkg.com/@azure/communication-calling/-/communication-calling-1.0.1-beta.1.tgz#d4bd49bc01d6bff3bc195aec0685c85ef587c860"
-  integrity sha512-jjkAcO+dFKl6fjdI62mgImF7VJ48vRs6PfR5TfuswZQ758k1bHxnJfi8T1jS8F5JcBJGEzoUsaFCQD8Ae2eFgg==
+"@azure/communication-calling@1.1.0-beta.2":
+  version "1.1.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@azure/communication-calling/-/communication-calling-1.1.0-beta.2.tgz#e673340488686eeb969df71f49298b44c917782f"
+  integrity sha512-Gjt2Ym8S/WrlL5e6Qe/gAbDa5d9acmOnOm8jPDaRZVn7oS6j8AfSYMvCdx+ILKGjjzThXdN+1/v1ReZfEjzE+A==
   dependencies:
     "@azure/communication-common" "^1.0.0"
     "@azure/logger" "^1.0.2"
@@ -47,28 +47,26 @@
     jwt-decode "~2.2.0"
     tslib "^2.0.0"
 
-"@azure/communication-react@^1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@azure/communication-react/-/communication-react-1.0.0-beta.1.tgz#4f6d07adea26e6f8b795f4051c43705248d056de"
-  integrity sha512-XGTS7e2Tf9mvrS+gABy71FwH6VtGQoi0J/Tjf4+O+B/R9t9vPs5K5oZ1GO6JJ5dMNHx8K1E0vd6M3WrY6xFy1w==
+"@azure/communication-react@latest":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@azure/communication-react/-/communication-react-1.0.0-beta.2.tgz#4b0c0425d5ac7e7ed18568675d170ebd231dd380"
+  integrity sha512-+z9W2G/PK+73CrIhdsX7ekj27/jtHsPLOcoWL/h2zzGlQdqFiQV5nJf+sBgua4fFWC5sFha9PRgX7XddYUL5Gw==
   dependencies:
-    "@azure/communication-calling" "1.0.1-beta.1"
+    "@azure/communication-calling" "1.1.0-beta.2"
     "@azure/communication-chat" "1.0.0"
     "@azure/communication-common" "1.0.0"
     "@azure/communication-signaling" "1.0.0-beta.5"
-    "@azure/core-http" "^1.2.3"
+    "@azure/core-http" "1.2.4"
     "@azure/core-paging" "~1.1.3"
-    "@fluentui/react" "^7.117.1"
-    "@fluentui/react-icons" "^0.3.9"
-    "@fluentui/react-icons-northstar" "^0.51.2"
+    "@fluentui/react" "~8.17.2"
+    "@fluentui/react-icons" "~1.1.134"
     "@fluentui/react-northstar" "^0.51.2"
-    "@fluentui/react-theme-provider" "^0.18.0"
     "@uifabric/react-hooks" "~7.13.11"
     copy-to-clipboard "~3.3.1"
     events "~3.3.0"
     html-to-react "~1.4.5"
     immer "~8.0.1"
-    memoize-one "~5.1.1"
+    memoize-one "~5.2.1"
     nanoid "~3.1.20"
     react-aria-live "^2.0.5"
     react-linkify "^1.0.0-alpha"
@@ -112,7 +110,28 @@
     "@azure/abort-controller" "^1.0.0"
     tslib "^2.0.0"
 
-"@azure/core-http@^1.1.4", "@azure/core-http@^1.2.0", "@azure/core-http@^1.2.3":
+"@azure/core-http@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@azure/core-http/-/core-http-1.2.4.tgz#7de543f349de2c1033321252debdee4642c398f9"
+  integrity sha512-cNumz3ckyFZY5zWOgcTHSO7AKRVwxbodG8WfcEGcdH+ZJL3KvJEI/vN58H6xk5v3ijulU2x/WPGJqrMVvcI79A==
+  dependencies:
+    "@azure/abort-controller" "^1.0.0"
+    "@azure/core-asynciterator-polyfill" "^1.0.0"
+    "@azure/core-auth" "^1.3.0"
+    "@azure/core-tracing" "1.0.0-preview.11"
+    "@azure/logger" "^1.0.0"
+    "@types/node-fetch" "^2.5.0"
+    "@types/tunnel" "^0.0.1"
+    form-data "^3.0.0"
+    node-fetch "^2.6.0"
+    process "^0.11.10"
+    tough-cookie "^4.0.0"
+    tslib "^2.0.0"
+    tunnel "^0.0.6"
+    uuid "^8.3.0"
+    xml2js "^0.4.19"
+
+"@azure/core-http@^1.1.4", "@azure/core-http@^1.2.0":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@azure/core-http/-/core-http-1.2.6.tgz#9cd508418572d2062fd3175274219438772bdb65"
   integrity sha512-odtH7UMKtekc5YQ86xg9GlVHNXR6pq2JgJ5FBo7/jbOjNGdBqcrIVrZx2bevXVJz/uUTSx6vUf62gzTXTfqYSQ==
@@ -1389,14 +1408,6 @@
     "@fluentui/keyboard-key" "^0.2.7"
     lodash "^4.17.15"
 
-"@fluentui/date-time-utilities@^7.9.1":
-  version "7.9.1"
-  resolved "https://registry.yarnpkg.com/@fluentui/date-time-utilities/-/date-time-utilities-7.9.1.tgz#bb486dc0a0fff33ef5803adabbf95e2cbf4be7be"
-  integrity sha512-o8iU1VIY+QsqVRWARKiky29fh4KR1xaKSgMClXIi65qkt8EDDhjmlzL0KVDEoDA2GWukwb/1PpaVCWDg4v3cUQ==
-  dependencies:
-    "@uifabric/set-version" "^7.0.24"
-    tslib "^1.10.0"
-
 "@fluentui/date-time-utilities@^8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@fluentui/date-time-utilities/-/date-time-utilities-8.1.2.tgz#60969597d859afdf6a115594172beebd95c6f17b"
@@ -1421,6 +1432,23 @@
     "@fluentui/set-version" "^8.1.2"
     tslib "^2.1.0"
 
+"@fluentui/dom-utilities@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@fluentui/dom-utilities/-/dom-utilities-2.1.3.tgz#0e1da78113c0225e6b1ffd1c009d7c06f9b2359a"
+  integrity sha512-i2YECSldnkzPAhVmrxksuKSbqBKfMbHrexGqDJm7dy6KoIx+JSilbA5Lz0YNhA7VEgCy1X01GHlWBvqhCNQW8g==
+  dependencies:
+    "@fluentui/set-version" "^8.1.3"
+    tslib "^2.1.0"
+
+"@fluentui/font-icons-mdl2@^8.1.2":
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/@fluentui/font-icons-mdl2/-/font-icons-mdl2-8.1.6.tgz#6d8b734e4889ac7fefafb8127af466a575f259b5"
+  integrity sha512-tNAaX72NQYbvR9zeiOiVQBQhYtVgPUgh68LKTGywuYGc2WffBu20Xk9wII8iLGmAijLI1QClaCQxaRAL0IkfBA==
+  dependencies:
+    "@fluentui/set-version" "^8.1.3"
+    "@fluentui/style-utilities" "^8.2.0"
+    tslib "^2.1.0"
+
 "@fluentui/font-icons-mdl2@^8.1.3":
   version "8.1.3"
   resolved "https://registry.yarnpkg.com/@fluentui/font-icons-mdl2/-/font-icons-mdl2-8.1.3.tgz#7c7abe22fd871b964276fca0cac7aa61090a3cbd"
@@ -1428,6 +1456,17 @@
   dependencies:
     "@fluentui/set-version" "^8.1.2"
     "@fluentui/style-utilities" "^8.1.3"
+    tslib "^2.1.0"
+
+"@fluentui/foundation-legacy@^8.1.2":
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/@fluentui/foundation-legacy/-/foundation-legacy-8.1.6.tgz#b9f77cb41b0fc640baba9c6a7391d5c532836d8a"
+  integrity sha512-TJzUFcpfcJefXNmTOAJBKgIlQXDPw/dIcpO9l2nBfORvy4RnrJK4QjpdJPp5XOhDPtDVjlKPB1WvavoRkPRrbg==
+  dependencies:
+    "@fluentui/merge-styles" "^8.1.3"
+    "@fluentui/set-version" "^8.1.3"
+    "@fluentui/style-utilities" "^8.2.0"
+    "@fluentui/utilities" "^8.2.1"
     tslib "^2.1.0"
 
 "@fluentui/foundation-legacy@^8.1.3":
@@ -1441,7 +1480,7 @@
     "@fluentui/utilities" "^8.1.2"
     tslib "^2.1.0"
 
-"@fluentui/keyboard-key@^0.2.12", "@fluentui/keyboard-key@^0.2.7":
+"@fluentui/keyboard-key@^0.2.7":
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/@fluentui/keyboard-key/-/keyboard-key-0.2.17.tgz#61c037c3a596986926ad8812b58e9e5cebf9f972"
   integrity sha512-iT1bU56rKrKEOfODoW6fScY11qj3iaYrZ+z11T6fo5+TDm84UGkkXjLXJTE57ZJzg0/gbccHQWYv+chY7bJN8Q==
@@ -1455,12 +1494,27 @@
   dependencies:
     tslib "^2.1.0"
 
+"@fluentui/keyboard-key@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@fluentui/keyboard-key/-/keyboard-key-0.3.3.tgz#370f3dcd1f708f290538088c27e4a5573b662642"
+  integrity sha512-3qX1WNCgJlKq7uGH76rLC4cdESgwdLhMH9WjcQUkQNJKtBpL4vs5O99M1keEhd3pfooW7zasr6AcYcWq4BRB4g==
+  dependencies:
+    tslib "^2.1.0"
+
 "@fluentui/merge-styles@^8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@fluentui/merge-styles/-/merge-styles-8.1.2.tgz#4398737d92689f701d9e4974a61d2604991a8409"
   integrity sha512-r0EGKfJUjZw9yJ21VMXjaqLoujvBkRIWRQVMM6CUxbY+02dhKUt6Sa9QA/8m8klsEWBENOaKZ4uX5U2vWWBlyw==
   dependencies:
     "@fluentui/set-version" "^8.1.2"
+    tslib "^2.1.0"
+
+"@fluentui/merge-styles@^8.1.3":
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@fluentui/merge-styles/-/merge-styles-8.1.3.tgz#f40667c280cdf3af1b773548638db1f83099657a"
+  integrity sha512-5vZUyXnbOb9M1rMLzQ7Kj5uadHgSTsp3gv0xDv6bfPvzB9RgQa3dEuJ6TA34tLezw8sFYuA6NnKd57nlb4aXMA==
+  dependencies:
+    "@fluentui/set-version" "^8.1.3"
     tslib "^2.1.0"
 
 "@fluentui/react-bindings@^0.51.7":
@@ -1522,17 +1576,6 @@
     classnames "^2.2.6"
     tslib "^1.10.0"
 
-"@fluentui/react-compose@^0.19.15":
-  version "0.19.15"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-compose/-/react-compose-0.19.15.tgz#11594217c9b27484b74107c3070fdd90767b149a"
-  integrity sha512-54a28yt9EDf/ZzKKzLIUziwIK0eucoTqkWmZZh6T559rf85XcpH9Wvu7240C7nhUUZ0Fr+flt2QBl5RAyFKFdg==
-  dependencies:
-    "@types/classnames" "^2.2.9"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/utilities" "^7.33.5"
-    classnames "^2.2.6"
-    tslib "^1.10.0"
-
 "@fluentui/react-context-selector@^0.51.7":
   version "0.51.7"
   resolved "https://registry.yarnpkg.com/@fluentui/react-context-selector/-/react-context-selector-0.51.7.tgz#ac4a55f808191223388c551fac5b2ee024cc74a2"
@@ -1540,17 +1583,17 @@
   dependencies:
     "@babel/runtime" "^7.10.4"
 
-"@fluentui/react-focus@^7.17.6":
-  version "7.17.6"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-focus/-/react-focus-7.17.6.tgz#aa23413c56d27615fdc8363bf8b8c70d5817c929"
-  integrity sha512-JkLWNDe567lhvbnIhbYv9nUWYDIVN06utc3krs0UZBI+A0YZtQmftBtY0ghXo4PSjgozZocdu9sYkkgZOgyRLg==
+"@fluentui/react-focus@^8.1.3":
+  version "8.1.8"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-focus/-/react-focus-8.1.8.tgz#ee59ee1e8a644b39b903691d72b48096016b7432"
+  integrity sha512-EUI1TZwM7T2keNEjqIAkeV9ALMlLjz7abqHk0AypKJG3v4YPQHycal37KAHQb+gdVJX2hjVQLxynI1yrquKFUw==
   dependencies:
-    "@fluentui/keyboard-key" "^0.2.12"
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/styling" "^7.19.0"
-    "@uifabric/utilities" "^7.33.5"
-    tslib "^1.10.0"
+    "@fluentui/keyboard-key" "^0.3.3"
+    "@fluentui/merge-styles" "^8.1.3"
+    "@fluentui/set-version" "^8.1.3"
+    "@fluentui/style-utilities" "^8.2.0"
+    "@fluentui/utilities" "^8.2.1"
+    tslib "^2.1.0"
 
 "@fluentui/react-focus@^8.1.4":
   version "8.1.4"
@@ -1574,7 +1617,7 @@
     "@fluentui/utilities" "^8.1.2"
     tslib "^2.1.0"
 
-"@fluentui/react-icons-northstar@^0.51.2", "@fluentui/react-icons-northstar@^0.51.7":
+"@fluentui/react-icons-northstar@^0.51.7":
   version "0.51.7"
   resolved "https://registry.yarnpkg.com/@fluentui/react-icons-northstar/-/react-icons-northstar-0.51.7.tgz#cc7715c27ba55eaeb9ed2a0d65e7ecba424b4a19"
   integrity sha512-9p0DQcGng+CA/sTnjxxaGWC8CH/OhwZCIEwp3srMeIkPaeWG7jKIOCTjRh87l5XhaeaYds6b88zET7axAHoXvw==
@@ -1585,15 +1628,10 @@
     "@fluentui/styles" "^0.51.7"
     classnames "^2.2.6"
 
-"@fluentui/react-icons@^0.3.9":
-  version "0.3.10"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-icons/-/react-icons-0.3.10.tgz#5dd00c85fd8dfe791dc769985b4a4430f0494ff6"
-  integrity sha512-b2Y5ZcvY+/3xAg7pDcHAgLXIp8BbCfKM47Yh+uQAAH1S4THAetKpmFUOugJRHye3sr4ZDBk2QdSjUt4MXrDTsQ==
-  dependencies:
-    "@microsoft/load-themed-styles" "^1.10.26"
-    "@uifabric/set-version" "^7.0.23"
-    "@uifabric/utilities" "^7.33.3"
-    tslib "^1.10.0"
+"@fluentui/react-icons@~1.1.134":
+  version "1.1.135"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-icons/-/react-icons-1.1.135.tgz#f37b41e6ec345fb81b4ed530b89782ad54f8e1e8"
+  integrity sha512-Gs1GeUjK05WMvhLjBTM5mk/9Mo5yQ706/EYhwGPzGdXbKiEvQ/JwJEYmCRsJoo4062w5ksDiUpUCGW3LSpm5oA==
 
 "@fluentui/react-northstar-fela-renderer@^0.51.7":
   version "0.51.7"
@@ -1661,30 +1699,6 @@
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@fluentui/react-stylesheets@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-stylesheets/-/react-stylesheets-0.2.5.tgz#46892a14830e4f33a7f17abb3ca1ee4d1c3d4ef2"
-  integrity sha512-8yVEgZH+sLhIMuQI6lEtlRjvyMuPDjfEMgXfcU6n6mgp4AOdXMDKf8wbvNO8aOnDeT92EydvmZzvXVHDr5uGkg==
-  dependencies:
-    "@uifabric/set-version" "^7.0.24"
-    tslib "^1.10.0"
-
-"@fluentui/react-theme-provider@^0.18.0":
-  version "0.18.5"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-theme-provider/-/react-theme-provider-0.18.5.tgz#97c3ca9fc794929b2ffa9d5526470d278a38ba4d"
-  integrity sha512-eAbha0U4Fly9EoHVOVMMc+2AA1PlQDu76qGVNAdj0IpJyJEkyerCDY/qYVjV21L9ju5uO8Yw1QYdHUsNaY9xvQ==
-  dependencies:
-    "@fluentui/react-compose" "^0.19.15"
-    "@fluentui/react-stylesheets" "^0.2.5"
-    "@fluentui/react-window-provider" "^1.0.2"
-    "@fluentui/theme" "^1.7.4"
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/react-hooks" "^7.13.12"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/utilities" "^7.33.5"
-    classnames "^2.2.6"
-    tslib "^1.10.0"
-
 "@fluentui/react-window-provider@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@fluentui/react-window-provider/-/react-window-provider-1.0.2.tgz#634f1f2e77fca9b3e8dbff9599d0c86d6c77dd73"
@@ -1700,15 +1714,6 @@
   dependencies:
     "@fluentui/set-version" "^8.1.2"
     tslib "^2.1.0"
-
-"@fluentui/react@^7.117.1":
-  version "7.172.1"
-  resolved "https://registry.yarnpkg.com/@fluentui/react/-/react-7.172.1.tgz#fa13c1ebf8e0023cf41cd75194a385d159e52fa6"
-  integrity sha512-XJhYEo0fn/30i4m+qJkT1y5kNTZ8DAwzWhdGSyTiOrxiJ7pKWOoXAdWnvhtk3iY0SPVWSD9jTn5lMT/2WkZbJw==
-  dependencies:
-    "@uifabric/set-version" "^7.0.24"
-    office-ui-fabric-react "^7.172.1"
-    tslib "^1.10.0"
 
 "@fluentui/react@^8.20.2":
   version "8.20.2"
@@ -1729,10 +1734,36 @@
     "@microsoft/load-themed-styles" "^1.10.26"
     tslib "^2.1.0"
 
+"@fluentui/react@~8.17.2":
+  version "8.17.4"
+  resolved "https://registry.yarnpkg.com/@fluentui/react/-/react-8.17.4.tgz#f974747d4d37a3b6a54d494f65778edd82d536f7"
+  integrity sha512-9H9kNL8p/hpVIXk0SPh7ExhX00HuBofbbeU6rnBqWbKfOdbV+iQ8INsvZWAE1JcWoaxP3iscZcM3N0ViH218HA==
+  dependencies:
+    "@fluentui/date-time-utilities" "^8.1.2"
+    "@fluentui/font-icons-mdl2" "^8.1.2"
+    "@fluentui/foundation-legacy" "^8.1.2"
+    "@fluentui/merge-styles" "^8.1.2"
+    "@fluentui/react-focus" "^8.1.3"
+    "@fluentui/react-hooks" "^8.2.2"
+    "@fluentui/react-window-provider" "^2.1.2"
+    "@fluentui/set-version" "^8.1.2"
+    "@fluentui/style-utilities" "^8.1.2"
+    "@fluentui/theme" "^2.1.2"
+    "@fluentui/utilities" "^8.1.2"
+    "@microsoft/load-themed-styles" "^1.10.26"
+    tslib "^2.1.0"
+
 "@fluentui/set-version@^8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@fluentui/set-version/-/set-version-8.1.2.tgz#4a0e29f3e71dd44edbc85e92d4cee80fc2b23c61"
   integrity sha512-uCPwdBsahBbLuN8UkbmXtp+u8Gxqtm5+fZ1UuOUBhEL7MKl86LrWmxoy4IW3JD2rcbaYpCb7KFpnMB5s0Nx0ZA==
+  dependencies:
+    tslib "^2.1.0"
+
+"@fluentui/set-version@^8.1.3":
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@fluentui/set-version/-/set-version-8.1.3.tgz#4801d9e6504ef7ee2ad787cea9f5ef585d0ecd50"
+  integrity sha512-QYLFBnwa6xJj0phEy6r+iO5bXWXxkhS1uNngUwfWsHaTskDa4PXDDdjZAXjTVV935xqmoM4GZhZk+Tcoe/OaXA==
   dependencies:
     tslib "^2.1.0"
 
@@ -1742,6 +1773,18 @@
   integrity sha512-sTCv3hnEpmWW/hjw+vmloaslNnYmFYeN8J9uJzYBGVi9NKKLvXtMKeoaikAXBVpnmMknl67VCapjauF0NxXDjQ==
   dependencies:
     "@babel/runtime" "^7.10.4"
+
+"@fluentui/style-utilities@^8.1.2", "@fluentui/style-utilities@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/style-utilities/-/style-utilities-8.2.0.tgz#7c7a44ea8a890279e1cb698311fda09f8943bb66"
+  integrity sha512-gdAgBnevDOHbgqAKCaQG4CXN6dONMg8BRSZNqha0I9WdgLJy7F7t4xVo8elPjlDUP72ciYT8J9Z/YNljZzbE0w==
+  dependencies:
+    "@fluentui/merge-styles" "^8.1.3"
+    "@fluentui/set-version" "^8.1.3"
+    "@fluentui/theme" "^2.1.4"
+    "@fluentui/utilities" "^8.2.1"
+    "@microsoft/load-themed-styles" "^1.10.26"
+    tslib "^2.1.0"
 
 "@fluentui/style-utilities@^8.1.3":
   version "8.1.3"
@@ -1764,16 +1807,6 @@
     csstype "^2.6.7"
     lodash "^4.17.15"
 
-"@fluentui/theme@^1.7.4":
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/@fluentui/theme/-/theme-1.7.4.tgz#8582bab5a7445585c631d05d44b5ebb56f18b6ba"
-  integrity sha512-o4eo7lstLxxXl1g2RR9yz18Yt8yjQO/LbQuZjsiAfv/4Bf0CRnb+3j1F7gxIdBWAchKj9gzaMpIFijfI98pvYQ==
-  dependencies:
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/utilities" "^7.33.5"
-    tslib "^1.10.0"
-
 "@fluentui/theme@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@fluentui/theme/-/theme-2.1.2.tgz#b25e43579f511622296cab61141fececb6bfe770"
@@ -1784,6 +1817,16 @@
     "@fluentui/utilities" "^8.1.2"
     tslib "^2.1.0"
 
+"@fluentui/theme@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@fluentui/theme/-/theme-2.1.4.tgz#3f4a04de614437803d053bf986f2aa0aeeb5c48b"
+  integrity sha512-Y4FWgnYldvAFOo24tfsREMb8/3Tn5uDoYgGO7AAdrksP7VAaavaEVQCOgvHWy3l89Bsxf00/fE+QJ/AHv5Z4CA==
+  dependencies:
+    "@fluentui/merge-styles" "^8.1.3"
+    "@fluentui/set-version" "^8.1.3"
+    "@fluentui/utilities" "^8.2.1"
+    tslib "^2.1.0"
+
 "@fluentui/utilities@^8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@fluentui/utilities/-/utilities-8.1.2.tgz#b90315149b062d8e7fccaadc01c80d8e32afaa0f"
@@ -1792,6 +1835,16 @@
     "@fluentui/dom-utilities" "^2.1.2"
     "@fluentui/merge-styles" "^8.1.2"
     "@fluentui/set-version" "^8.1.2"
+    tslib "^2.1.0"
+
+"@fluentui/utilities@^8.2.1":
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/@fluentui/utilities/-/utilities-8.2.1.tgz#b68cdc57f434907494e2364c99c4d32987826b83"
+  integrity sha512-ezRkBUDhHQjrqAWA6H1TwWU3STauW/EjthDAe/upJbmXeP3ynn7tTpx1gpNi/vHjJlRkO1JjNoiSc6P4MZWkYw==
+  dependencies:
+    "@fluentui/dom-utilities" "^2.1.3"
+    "@fluentui/merge-styles" "^8.1.3"
+    "@fluentui/set-version" "^8.1.3"
     tslib "^2.1.0"
 
 "@hapi/address@2.x.x":
@@ -2687,42 +2740,12 @@
     "@typescript-eslint/types" "4.15.2"
     eslint-visitor-keys "^2.0.0"
 
-"@uifabric/foundation@^7.9.26":
-  version "7.9.26"
-  resolved "https://registry.yarnpkg.com/@uifabric/foundation/-/foundation-7.9.26.tgz#483e4199d0ce8c25ea94910054c68abf2d3a27ce"
-  integrity sha512-1FLTb+jlH/Tuel2L9wT/zLl5ZW6W4Lbjrs5VUVjv81vWxzznvPnTf8+Ew0qkzaH7xDuMNMl7okswhV0IfJyheg==
-  dependencies:
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/styling" "^7.19.0"
-    "@uifabric/utilities" "^7.33.5"
-    tslib "^1.10.0"
-
-"@uifabric/icons@^7.5.23":
-  version "7.5.23"
-  resolved "https://registry.yarnpkg.com/@uifabric/icons/-/icons-7.5.23.tgz#5244bbe901406d1d44ff13322264270a0ab94f2c"
-  integrity sha512-eIvUbH0EWgFgdfgFfINgqS2ZVZTyJ/9n5nR4bmcyAe75wsKxm4ser4WIT9IvaBF6+HFVfjUF/v6+VMD7y2LBng==
-  dependencies:
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/styling" "^7.19.0"
-    tslib "^1.10.0"
-
 "@uifabric/merge-styles@^7.19.2":
   version "7.19.2"
   resolved "https://registry.yarnpkg.com/@uifabric/merge-styles/-/merge-styles-7.19.2.tgz#e020adc2f9b238f0feb855274dfeedaf6d5822a7"
   integrity sha512-kTlhwglDqwVgIaJq+0yXgzi65plGhmFcPrfme/rXUGMJZoU+qlGT5jXj5d3kuI59p6VB8jWEg9DAxHozhYeu0g==
   dependencies:
     "@uifabric/set-version" "^7.0.24"
-    tslib "^1.10.0"
-
-"@uifabric/react-hooks@^7.13.12", "@uifabric/react-hooks@^7.14.0":
-  version "7.14.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/react-hooks/-/react-hooks-7.14.0.tgz#f9a1ee54eea0f09c84cf79102329063408e146d6"
-  integrity sha512-Ndu/DEKHF4gFXEZa2AGgSkdWaj+njVrsSyXbkWRh2UZReFWnH1LMko9p/ZCwk1i9kAd5CUmyIfURUzIEya9YCg==
-  dependencies:
-    "@fluentui/react-window-provider" "^1.0.2"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/utilities" "^7.33.5"
     tslib "^1.10.0"
 
 "@uifabric/react-hooks@~7.13.11":
@@ -2735,26 +2758,14 @@
     "@uifabric/utilities" "^7.33.5"
     tslib "^1.10.0"
 
-"@uifabric/set-version@^7.0.19", "@uifabric/set-version@^7.0.23", "@uifabric/set-version@^7.0.24":
+"@uifabric/set-version@^7.0.19", "@uifabric/set-version@^7.0.24":
   version "7.0.24"
   resolved "https://registry.yarnpkg.com/@uifabric/set-version/-/set-version-7.0.24.tgz#8c67d8f1d67c1636a170efa8b622132da2d294a9"
   integrity sha512-t0Pt21dRqdC707/ConVJC0WvcQ/KF7tKLU8AZY7YdjgJpMHi1c0C427DB4jfUY19I92f60LOQyhJ4efH+KpFEg==
   dependencies:
     tslib "^1.10.0"
 
-"@uifabric/styling@^7.19.0":
-  version "7.19.0"
-  resolved "https://registry.yarnpkg.com/@uifabric/styling/-/styling-7.19.0.tgz#10bef6152cc94bd72c22da923f766b8197f63652"
-  integrity sha512-fXComDtGV7dHF4rP4cLHwI6fC+1f/nvPavpMBz4IQdySwixta9TVMKbzt0OA6i0mJztqZCVAd27F/sl9R/JmcQ==
-  dependencies:
-    "@fluentui/theme" "^1.7.4"
-    "@microsoft/load-themed-styles" "^1.10.26"
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/utilities" "^7.33.5"
-    tslib "^1.10.0"
-
-"@uifabric/utilities@^7.24.5", "@uifabric/utilities@^7.25.1", "@uifabric/utilities@^7.33.3", "@uifabric/utilities@^7.33.5":
+"@uifabric/utilities@^7.24.5", "@uifabric/utilities@^7.25.1", "@uifabric/utilities@^7.33.5":
   version "7.33.5"
   resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-7.33.5.tgz#4e7ed4bab725c054005e9ac37b0f01d743089be4"
   integrity sha512-I+Oi0deD/xltSluFY8l2EVd/J4mvOaMljxKO2knSD9/KoGDlo/o5GN4gbnVo8nIt76HWHLAk3KtlJKJm6BhbIQ==
@@ -8107,10 +8118,10 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-memoize-one@~5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
-  integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
+memoize-one@~5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
 
 memory-fs@^0.4.1:
   version "0.4.1"
@@ -8692,25 +8703,6 @@ obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
-
-office-ui-fabric-react@^7.172.1:
-  version "7.172.1"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-7.172.1.tgz#b3b4d8e7f335f022df1ed9eb0c42c6683b2cd2be"
-  integrity sha512-W3QFwxmHAu4Pn65hccuLSx8yiGzto3eRkMgD46OIwDT9smTEF6U3OVSZC/8cpX24BJF9Qe5u034InIfzPLtJeQ==
-  dependencies:
-    "@fluentui/date-time-utilities" "^7.9.1"
-    "@fluentui/react-focus" "^7.17.6"
-    "@fluentui/react-window-provider" "^1.0.2"
-    "@microsoft/load-themed-styles" "^1.10.26"
-    "@uifabric/foundation" "^7.9.26"
-    "@uifabric/icons" "^7.5.23"
-    "@uifabric/merge-styles" "^7.19.2"
-    "@uifabric/react-hooks" "^7.14.0"
-    "@uifabric/set-version" "^7.0.24"
-    "@uifabric/styling" "^7.19.0"
-    "@uifabric/utilities" "^7.33.5"
-    prop-types "^15.7.2"
-    tslib "^1.10.0"
 
 on-finished@~2.3.0:
   version "2.3.0"
